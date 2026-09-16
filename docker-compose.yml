@@ -5,6 +5,7 @@ services:
     environment:
       PORT: 3002
       RULE_STORE_PATH: /app/data/rules-store.json
+      DMN_ARTIFACT_DIR: /app/data/published-dmn
     volumes:
       - ./data:/app/data
     ports:
