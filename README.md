@@ -50,9 +50,9 @@ docker compose up --build
 
 Buka:
 
-- Web: `http://localhost:3000`
-- API: `http://localhost:3002`
-- Health: `http://localhost:3002/health`
+- Web: `http://localhost:3400`
+- API: `http://localhost:3402`
+- Health: `http://localhost:3402/health`
 
 ## Endpoint utama
 
@@ -66,7 +66,7 @@ POST /business-rules/simulate-permit
 Contoh evaluasi:
 
 ```bash
-curl -X POST http://localhost:3002/business-rules/simulate-permit \
+curl -X POST http://localhost:3402/business-rules/simulate-permit \
   -H 'Content-Type: application/json' \
   -d '{
     "kbli":"03111",
