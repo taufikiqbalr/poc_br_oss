@@ -12,9 +12,9 @@ Hasil canvas dikompilasi menjadi **Decision Definition/DMN-style rule** milik B1
 
 ## URL
 
-- Simulator: `http://localhost:3000/`
-- Business Rule Management: `http://localhost:3000/manage`
-- Regulation → Rule Designer: `http://localhost:3000/designer`
+- Simulator: `http://localhost:3400/`
+- Business Rule Management: `http://localhost:3400/manage`
+- Regulation → Rule Designer: `http://localhost:3400/designer`
 
 ## Interaksi
 
