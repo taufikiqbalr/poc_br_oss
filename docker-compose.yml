@@ -1,0 +1,21 @@
+services:
+  api:
+    build: ./apps/api
+    container_name: oss-br-api
+    environment:
+      PORT: 3002
+    ports:
+      - "3002:3002"
+
+  web:
+    build:
+      context: ./apps/web
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:3002}
+    container_name: oss-br-web
+    environment:
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:3002}
+    depends_on:
+      - api
+    ports:
+      - "3000:3000"
