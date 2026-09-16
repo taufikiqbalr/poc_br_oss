@@ -74,7 +74,7 @@ The following transition from `PUBLISHED` to `ACTIVE` does not change the decisi
 Open:
 
 ```text
-http://localhost:3000/artifacts
+http://localhost:3400/artifacts
 ```
 
 The page supports:
