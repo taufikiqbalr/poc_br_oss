@@ -4,6 +4,9 @@ services:
     container_name: oss-br-api
     environment:
       PORT: 3002
+      RULE_STORE_PATH: /app/data/rules-store.json
+    volumes:
+      - ./data:/app/data
     ports:
       - "3002:3002"
 
