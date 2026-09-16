@@ -7,6 +7,7 @@ import {
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { DECISION_CATALOG } from './business-rules.catalog';
+import { DmnArtifactService } from './dmn-artifact.service';
 import {
   DecisionDefinition,
   DecisionVersionSnapshot,
@@ -30,6 +31,8 @@ export class ManagedRulesService implements OnModuleInit {
   private readonly storePath = resolve(
     process.env.RULE_STORE_PATH || 'data/rules-store.json',
   );
+
+  constructor(private readonly dmnArtifacts: DmnArtifactService) {}
 
   onModuleInit() {
     this.loadOrSeed();
@@ -171,9 +174,20 @@ export class ManagedRulesService implements OnModuleInit {
       }
     }
 
+    const previousWorking = this.clone(record.working);
     record.working.status = target;
     record.revision += 1;
     record.working.version = this.lifecycleVersion(record.working.version, target);
+
+    try {
+      if (target === 'PUBLISHED') {
+        this.dmnArtifacts.publish(record.working, actor);
+      }
+    } catch (error) {
+      record.working = previousWorking;
+      record.revision -= 1;
+      throw error;
+    }
 
     if (target === 'ACTIVE') {
       record.active = this.clone(record.working);

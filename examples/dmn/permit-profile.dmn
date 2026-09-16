@@ -1,25 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" id="oss-v2-business-rules" name="OSS v2 Business Rules" namespace="https://oss.go.id/dmn">
-  <decision id="permitProfile" name="Determine Permit Profile">
-    <decisionTable id="permitProfileTable" hitPolicy="FIRST">
-      <input id="i1" label="KBLI"><inputExpression typeRef="string"><text>kbli</text></inputExpression></input>
-      <input id="i2" label="Ruang Lingkup"><inputExpression typeRef="string"><text>ruangLingkup</text></inputExpression></input>
-      <input id="i3" label="Skala Usaha"><inputExpression typeRef="string"><text>skalaUsaha</text></inputExpression></input>
-      <input id="i4" label="Parameter"><inputExpression typeRef="string"><text>parameterCode</text></inputExpression></input>
-      <output id="o1" name="riskLevel" typeRef="string"/>
-      <output id="o2" name="authority" typeRef="string"/>
-      <output id="o3" name="slaDays" typeRef="number"/>
-      <output id="o4" name="routeTarget" typeRef="string"/>
-      <rule id="r03111">
-        <inputEntry><text>"03111"</text></inputEntry>
-        <inputEntry><text>"RL-A-001"</text></inputEntry>
-        <inputEntry><text>"Besar"</text></inputEntry>
-        <inputEntry><text>"A00101"</text></inputEntry>
-        <outputEntry><text>"TINGGI"</text></outputEntry>
-        <outputEntry><text>"GUBERNUR"</text></outputEntry>
-        <outputEntry><text>7</text></outputEntry>
-        <outputEntry><text>"C4-PEMDA"</text></outputEntry>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/"
+  xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/"
+  xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/"
+  xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/"
+  id="Definitions-permit-profile"
+  name="OSS v2 - Determine Permit Profile"
+  namespace="https://oss.go.id/dmn/permit-profile"
+  exporter="OSS v2 Business Rules PoC"
+  exporterVersion="1.0.0">
+  <decision id="permit-profile" name="Determine Permit Profile">
+    <description>Portable OMG DMN 1.3 decision model generated from the OSS v2 B1 Business Rules PoC.</description>
+    <decisionTable id="permit-profile-table" hitPolicy="FIRST">
+      <input id="Input_1" label="kbli">
+        <inputExpression id="InputExpression_1"><text>kbli</text></inputExpression>
+      </input>
+      <input id="Input_2" label="ruangLingkup">
+        <inputExpression id="InputExpression_2"><text>ruangLingkup</text></inputExpression>
+      </input>
+      <input id="Input_3" label="skalaUsaha">
+        <inputExpression id="InputExpression_3"><text>skalaUsaha</text></inputExpression>
+      </input>
+      <input id="Input_4" label="parameterCode">
+        <inputExpression id="InputExpression_4"><text>parameterCode</text></inputExpression>
+      </input>
+      <output id="Output_1" name="riskLevel"/>
+      <output id="Output_2" name="permitType"/>
+      <output id="Output_3" name="authority"/>
+      <output id="Output_4" name="slaDays"/>
+      <output id="Output_5" name="routeTarget"/>
+      <output id="Output_6" name="obligations"/>
+      <output id="Output_7" name="pbumku"/>
+      <annotation name="Source / Notes"/>
+      <rule id="PB-03111-RL-A-001-BESAR-A00101">
+        <inputEntry id="Rule_1_Input_1"><text>"03111"</text></inputEntry>
+        <inputEntry id="Rule_1_Input_2"><text>"RL-A-001"</text></inputEntry>
+        <inputEntry id="Rule_1_Input_3"><text>"Besar"</text></inputEntry>
+        <inputEntry id="Rule_1_Input_4"><text>"A00101"</text></inputEntry>
+        <outputEntry id="Rule_1_Output_1"><text>"TINGGI"</text></outputEntry>
+        <outputEntry id="Rule_1_Output_2"><text>["NIB", "IZIN"]</text></outputEntry>
+        <outputEntry id="Rule_1_Output_3"><text>"GUBERNUR"</text></outputEntry>
+        <outputEntry id="Rule_1_Output_4"><text>7</text></outputEntry>
+        <outputEntry id="Rule_1_Output_5"><text>"C4-PEMDA"</text></outputEntry>
+        <outputEntry id="Rule_1_Output_6"><text>["KW-A-013", "KW-A-025", "KW-A-015", "KW-A-016"]</text></outputEntry>
+        <outputEntry id="Rule_1_Output_7"><text>["PB-A-019", "PB-A-001"]</text></outputEntry>
+        <annotationEntry id="Rule_1_Annotation_1">
+          <text>OSS v2 BRDF-PB example: 03111-RL-A-001-Besar-001 | routeTarget C4-PEMDA is PoC architecture mapping</text>
+        </annotationEntry>
       </rule>
     </decisionTable>
   </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="DMNDiagram-permit-profile">
+      <dmndi:DMNShape id="DMNShape-permit-profile" dmnElementRef="permit-profile">
+        <dc:Bounds height="80" width="180" x="160" y="80"/>
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
 </definitions>

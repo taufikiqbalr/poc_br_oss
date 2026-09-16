@@ -1,6 +1,7 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { BusinessRulesService } from './business-rules.service';
 import { ManagedRulesService } from './managed-rules.service';
+import { DmnArtifactService } from './dmn-artifact.service';
 import { DecisionDefinition, LifecycleStatus } from './business-rules.types';
 
 @Controller('business-rules')
@@ -8,6 +9,7 @@ export class BusinessRulesController {
   constructor(
     private readonly service: BusinessRulesService,
     private readonly managed: ManagedRulesService,
+    private readonly dmnArtifacts: DmnArtifactService,
   ) {}
 
   @Get('decisions')
@@ -75,5 +77,32 @@ export class BusinessRulesController {
     @Body() body: { input?: Record<string, unknown> },
   ) {
     return this.service.preview(id, body.input || {});
+  }
+
+  @Get('managed/:id/dmn/:source')
+  dmnPreview(
+    @Param('id') id: string,
+    @Param('source') source: string,
+  ) {
+    if (source === 'working') {
+      return this.dmnArtifacts.preview(this.managed.getWorkingDefinition(id));
+    }
+    if (source === 'active') {
+      return this.dmnArtifacts.preview(this.managed.getRuntimeDefinition(id));
+    }
+    throw new BadRequestException("DMN source must be 'working' or 'active'");
+  }
+
+  @Get('artifacts')
+  publishedArtifacts() {
+    return this.dmnArtifacts.listPublished();
+  }
+
+  @Get('artifacts/:id/:version')
+  publishedArtifact(
+    @Param('id') id: string,
+    @Param('version') version: string,
+  ) {
+    return this.dmnArtifacts.getPublished(id, version);
   }
 }
