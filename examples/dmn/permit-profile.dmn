@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" id="oss-v2-business-rules" name="OSS v2 Business Rules" namespace="https://oss.go.id/dmn">
+  <decision id="permitProfile" name="Determine Permit Profile">
+    <decisionTable id="permitProfileTable" hitPolicy="FIRST">
+      <input id="i1" label="KBLI"><inputExpression typeRef="string"><text>kbli</text></inputExpression></input>
+      <input id="i2" label="Ruang Lingkup"><inputExpression typeRef="string"><text>ruangLingkup</text></inputExpression></input>
+      <input id="i3" label="Skala Usaha"><inputExpression typeRef="string"><text>skalaUsaha</text></inputExpression></input>
+      <input id="i4" label="Parameter"><inputExpression typeRef="string"><text>parameterCode</text></inputExpression></input>
+      <output id="o1" name="riskLevel" typeRef="string"/>
+      <output id="o2" name="authority" typeRef="string"/>
+      <output id="o3" name="slaDays" typeRef="number"/>
+      <output id="o4" name="routeTarget" typeRef="string"/>
+      <rule id="r03111">
+        <inputEntry><text>"03111"</text></inputEntry>
+        <inputEntry><text>"RL-A-001"</text></inputEntry>
+        <inputEntry><text>"Besar"</text></inputEntry>
+        <inputEntry><text>"A00101"</text></inputEntry>
+        <outputEntry><text>"TINGGI"</text></outputEntry>
+        <outputEntry><text>"GUBERNUR"</text></outputEntry>
+        <outputEntry><text>7</text></outputEntry>
+        <outputEntry><text>"C4-PEMDA"</text></outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

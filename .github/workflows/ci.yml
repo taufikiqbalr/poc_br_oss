@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [main, feature/**]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install API
+        run: npm install
+        working-directory: apps/api
+      - name: Build API
+        run: npm run build
+        working-directory: apps/api
+      - name: Install Web
+        run: npm install
+        working-directory: apps/web
+      - name: Build Web
+        run: npm run build
+        working-directory: apps/web
+        env:
+          NEXT_PUBLIC_API_URL: http://localhost:3002

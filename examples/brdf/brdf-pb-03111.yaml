@@ -1,0 +1,32 @@
+Title: 03111-RL-A-001-Besar-001
+BRDFType: OSS-PB-v01
+Key:
+  KodeSektor: A
+  KBLI: "03111"
+  KodeRuangLingkup: RL-A-001
+  SkalaUsaha: Besar
+Description:
+  JudulKBLI: Penangkapan Pisces/Ikan Bersirip di Laut
+  TingkatRisiko: Tinggi
+  PerizinanBerusaha:
+    - NIB
+    - Izin
+  JangkaWaktuPenerbitanHari: 7
+Parameter:
+  A00101: >-
+    Kapal penangkap ikan berukuran sampai dengan 5 GT atau tidak
+    menggunakan kapal penangkap ikan, dengan parameter wilayah sesuai
+    contoh BRDF OSS v2.
+Kewenangan:
+  A00101: Gubernur
+Kewajiban:
+  - KW-A-013
+  - KW-A-025
+  - KW-A-015
+  - KW-A-016
+PBUMKU:
+  - PB-A-019
+  - PB-A-001
+Metadata:
+  status: POC
+  note: Contoh diturunkan dari contoh BRDF-PB dalam material OSS v2; bukan master rule production.
