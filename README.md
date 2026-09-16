@@ -27,8 +27,8 @@ Contoh rule utama memakai contoh BRDF-PB OSS v2 untuk KBLI `03111`, ruang lingku
 
 - Backend: NestJS + TypeScript
 - Frontend: Next.js + React
-- Rule model: JSON decision table + BRDF YAML + DMN XML example
-- Storage PoC: in-memory catalog, mudah diganti PostgreSQL/Git-backed rule repository
+- Rule model: JSON decision table + BRDF YAML + standard DMN XML artifact
+- Storage PoC: file-backed managed rule store dan published DMN artifacts
 - Container: Docker Compose
 
 ## Fitur
@@ -37,9 +37,11 @@ Contoh rule utama memakai contoh BRDF-PB OSS v2 untuk KBLI `03111`, ruang lingku
 - Generic decision-table evaluator
 - Explainable evaluation trace
 - Permit Profile simulator
-- Rule version metadata
-- BRDF example
-- DMN example
+- Business Rule Management lifecycle
+- Regulation → Rule drag-and-drop designer
+- **Visual Rule Flow Modeler** dengan connector panah antar rule
+- Standard DMN XML artifact publication
+- Rule version metadata dan audit trail
 - REST API yang dapat dipanggil Workflow Engine
 
 ## Quick start
@@ -50,7 +52,11 @@ docker compose up --build
 
 Buka:
 
-- Web: `http://localhost:3400`
+- Simulator: `http://localhost:3400`
+- Business Rule Management: `http://localhost:3400/manage`
+- Regulation → Rule Designer: `http://localhost:3400/designer`
+- Visual Rule Flow Modeler: `http://localhost:3400/rule-flow`
+- DMN Artifacts: `http://localhost:3400/artifacts`
 - API: `http://localhost:3402`
 - Health: `http://localhost:3402/health`
 
