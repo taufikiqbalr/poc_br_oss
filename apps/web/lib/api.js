@@ -1,4 +1,4 @@
-const RAW_API = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3002';
+const RAW_API = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3402';
 
 export function getApiBase() {
   if (typeof window === 'undefined') return RAW_API;

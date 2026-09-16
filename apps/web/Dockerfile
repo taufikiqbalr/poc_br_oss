@@ -1,6 +1,6 @@
 FROM node:22-alpine AS build
 WORKDIR /app
-ARG NEXT_PUBLIC_API_URL=http://localhost:3002
+ARG NEXT_PUBLIC_API_URL=http://localhost:3402
 ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
 COPY package*.json ./
 RUN npm install
@@ -12,5 +12,5 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
 COPY --from=build /app ./
-EXPOSE 3000
+EXPOSE 3400
 CMD ["npm", "start"]
