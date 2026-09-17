@@ -44,6 +44,10 @@ Contoh rule utama memakai contoh BRDF-PB OSS v2 untuk KBLI `03111`, ruang lingku
 - Rule version metadata dan audit trail
 - REST API yang dapat dipanggil Workflow Engine
 
+## Tema UI
+
+UI PoC menggunakan visual language yang diselaraskan dengan portal `oss.go.id`: dominan **putih**, **merah OSS** untuk banner/accent, **biru** untuk primary action/navigation, serta **hijau** untuk status sukses/aktif. Header aplikasi menyediakan icon navigation konsisten untuk Simulator, Rule Management, Regulation Designer, Rule Flow, dan DMN Artifacts. Branding diberi label **PROTOTYPE** agar tidak disalahartikan sebagai portal OSS production.
+
 ## Quick start
 
 ```bash
