@@ -8,6 +8,8 @@ function Icon({ name }) {
   return null;
 }
 
+const OFFICIAL_OSS_LOGO = 'https://pemrosesan.oss.go.id/media/logos/LOGO_OSS_NEW.png';
+
 export default function OssAppHeader() {
   const items = [
     ['/', 'home', 'Simulator'],
@@ -20,7 +22,15 @@ export default function OssAppHeader() {
     <header className="ossAppHeader">
       <div className="ossHeaderInner">
         <a href="/" className="ossBrand" aria-label="OSS v2 Business Rules PoC">
-          <span className="ossWordmark" aria-hidden="true">OSS<span className="ossFlagDot" /></span>
+          <img
+            src={OFFICIAL_OSS_LOGO}
+            alt="Logo OSS Indonesia"
+            width="124"
+            height="52"
+            loading="eager"
+            decoding="async"
+            style={{ display: 'block', width: 124, height: 'auto', objectFit: 'contain' }}
+          />
           <span className="ossBrandText"><strong>Business Rules</strong><small>OSS v2 · B1 Orchestrator PoC</small></span>
           <span className="ossPrototypeBadge">PROTOTYPE</span>
         </a>
